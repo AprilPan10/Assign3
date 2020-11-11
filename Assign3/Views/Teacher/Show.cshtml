@@ -1,0 +1,29 @@
+﻿@model Assign3.Models.Teacher
+
+@{
+    ViewBag.Title = "Show";
+}
+
+
+<a class="navlink" href="/Teacher/List">Back to Teachers</a>
+
+
+<figure>
+    <div id="containershow">
+        <h2>@Model.TeacherFname @Model.TeacherLname</h2>
+
+
+        <img src="~/Content/images/user.png" />
+        
+            <p>The teacher's ID is @Model.TeacherId </p>
+            <p>The teacher's empolyee number is: @Model.TeacherEmployeenumber</p>
+            <p>The teacher's hire date is: @Model.TeacherHiredate</p>
+            <p>The teacher's salary is: @Model.TeacherSalary</p>
+            <p>The teacher is teach: </p>
+
+    </div>
+    </figure>
+
+
+
+

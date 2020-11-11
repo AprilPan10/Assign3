@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Assign3.Models.Teacher>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<p>This page should be showing information about all teachers</p>
+
+@foreach (var teacher in Model)
+{
+    <div><a href="/Teacher/Show/@teacher.TeacherId">@teacher.TeacherFname @teacher.TeacherLname</a></div>
+
+
+}
+<form action="~/Views/Teacher/Show.cshtml" method="get">
+    <input type="number" name="teacherid" />
+    <input type="submit" value="View the teacher!" />
+
+</form>
+
