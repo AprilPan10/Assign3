@@ -48,9 +48,9 @@ namespace Assign3.Controllers
             while (ResultSet.Read())
             {
                 //Access Column information by the DB column name as an index
-                int ClassId = (int)ResultSet["classid"];
-                string ClassName = (string)ResultSet["classname"];
-                string ClassCode = (string)ResultSet["classcode"];
+                int ClassId = Convert.ToInt32(ResultSet["classid"]);
+                string ClassName = ResultSet["classname"].ToString();
+                string ClassCode = ResultSet["classcode"].ToString();
                 DateTime ClassStartdate = (DateTime)ResultSet["startdate"];
                 DateTime ClassFinishdate = (DateTime)ResultSet["finishdate"];
 
@@ -96,9 +96,9 @@ namespace Assign3.Controllers
             while (ResultSet.Read())
             {
                 //Access Column information by the DB column name as an index
-                int ClassId = (int)ResultSet["classid"];
-                string ClassName = (string)ResultSet["classname"];
-                string ClassCode = (string)ResultSet["classcode"];
+                int ClassId = Convert.ToInt32(ResultSet["classid"]);
+                string ClassName = ResultSet["classname"].ToString();
+                string ClassCode = ResultSet["classcode"].ToString();
                 DateTime ClassStartdate = (DateTime)ResultSet["startdate"];
                 DateTime ClassFinishdate = (DateTime)ResultSet["finishdate"];
                 

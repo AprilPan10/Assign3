@@ -46,10 +46,10 @@ namespace Assign3.Controllers
             while (ResultSet.Read())
             {
                 //Access Column information by the DB column name as an index
-                int TeacherId = (int)ResultSet["teacherid"];
-                string TeacherFName = (string)ResultSet["teacherfname"];
-                string TeacherLName = (string)ResultSet["teacherlname"];
-                string TeacherEmployeenumber = (string)ResultSet["employeenumber"];
+                int TeacherId = Convert.ToInt32(ResultSet["teacherid"]);
+                string TeacherFName = ResultSet["teacherfname"].ToString();
+                string TeacherLName = ResultSet["teacherlname"].ToString();
+                string TeacherEmployeenumber = ResultSet["employeenumber"].ToString();
                 DateTime TeacherHiredate = (DateTime)ResultSet["hiredate"];
                 decimal TeacherSalary = (decimal)ResultSet["salary"];
                 
@@ -90,7 +90,7 @@ namespace Assign3.Controllers
             MySqlCommand cmd = Conn.CreateCommand();
 
             //SQL QUERY
-            string query = "Select * from teachers where teacherid ="+id;
+            string query = "Select teachers.*, classname, classid from teachers left join classes on teachers.teacherid = classes.teacherid where teachers.teacherid ="+id;
             cmd.CommandText = query;
 
             //Gather Result Set of Query into a variable
@@ -99,12 +99,14 @@ namespace Assign3.Controllers
             while (ResultSet.Read())
             {
                 //Access Column information by the DB column name as an index
-                int TeacherId = (int)ResultSet["teacherid"];
-                string TeacherFName = (string)ResultSet["teacherfname"];
-                string TeacherLName = (string)ResultSet["teacherlname"];
-                string TeacherEmployeenumber = (string)ResultSet["employeenumber"];
+                int TeacherId = Convert.ToInt32(ResultSet["teacherid"]);
+                string TeacherFName = ResultSet["teacherfname"].ToString();
+                string TeacherLName = ResultSet["teacherlname"].ToString();
+                string TeacherEmployeenumber = ResultSet["employeenumber"].ToString();
                 DateTime TeacherHiredate = (DateTime)ResultSet["hiredate"];
                 decimal TeacherSalary = (decimal)ResultSet["salary"];
+                string ClassName = ResultSet["classname"].ToString();
+                int ClassId =  Convert.ToInt32(ResultSet["classid"]);
 
 
 
@@ -116,6 +118,8 @@ namespace Assign3.Controllers
                 NewTeacher.TeacherEmployeenumber = TeacherEmployeenumber;
                 NewTeacher.TeacherHiredate = TeacherHiredate;
                 NewTeacher.TeacherSalary = TeacherSalary;
+                NewTeacher.ClassName = ClassName;
+                NewTeacher.ClassId = ClassId;
 
 
 

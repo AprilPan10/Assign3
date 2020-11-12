@@ -222,9 +222,14 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\images\icons8-resume-website-100.png" />
-    <Content Include="Content\images\icons8-website-100.png" />
-    <Content Include="Content\images\user.png" />
+    <Content Include="Content\images - Copy\class.png" />
+    <Content Include="Content\images - Copy\icons8-google-classroom-400.png" />
+    <Content Include="Content\images - Copy\icons8-user-male-512.png" />
+    <Content Include="Content\images - Copy\student.png" />
+    <Content Include="Content\images - Copy\user.png" />
+    <Content Include="Content\images\class.png" />
+    <Content Include="Content\images\teacher.png" />
+    <Content Include="Content\images\student.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

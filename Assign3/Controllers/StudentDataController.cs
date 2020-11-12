@@ -46,10 +46,10 @@ namespace Assign3.Controllers
             while (ResultSet.Read())
             {
                 //Access Column information by the DB column name as an index
-                int StudentId = (int)ResultSet["studentid"];
-                string StudentFName = (string)ResultSet["studentfname"];
-                string StudentLName = (string)ResultSet["studentlname"];
-                string StudentStudentnumber = (string)ResultSet["studentnumber"];
+                int StudentId = Convert.ToInt32(ResultSet["studentid"]);
+                string StudentFName = ResultSet["studentfname"].ToString();
+                string StudentLName = ResultSet["studentlname"].ToString();
+                string StudentStudentnumber = ResultSet["studentnumber"].ToString();
                 DateTime StudentEnroldate = (DateTime)ResultSet["enroldate"];
                 
 
@@ -97,10 +97,10 @@ namespace Assign3.Controllers
             while (ResultSet.Read())
             {
                 //Access Column information by the DB column name as an index
-                int StudentId = (int)ResultSet["studentid"];
-                string StudentFName = (string)ResultSet["studentfname"];
-                string StudentLName = (string)ResultSet["studentlname"];
-                string StudentStudentnumber = (string)ResultSet["studentnumber"];
+                int StudentId = Convert.ToInt32(ResultSet["studentid"]);
+                string StudentFName = ResultSet["studentfname"].ToString();
+                string StudentLName = ResultSet["studentlname"].ToString();
+                string StudentStudentnumber = ResultSet["studentnumber"].ToString();
                 DateTime StudentEnroldate = (DateTime)ResultSet["enroldate"];
 
 

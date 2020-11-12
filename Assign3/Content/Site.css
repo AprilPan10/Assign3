@@ -7,6 +7,8 @@
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    display:block;
+    margin:0 auto;
   
 }
 
@@ -16,28 +18,108 @@ select,
 textarea {
     max-width: 280px;
 }
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font: normal 1.4em/1.8 'Karla', sans-serif;
+    font-weight: 300;
+    margin: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand',sans-serif;
+    font-weight: 500;
+}
+h2{
+    color:#A3A3CD;
+}
+a {
+    color: #A3A3CD;
+}
+a:hover {
+    color: #FED5B3;
+}
 #containershow {
-    display: block;
+    max-width:1200px;
     margin: 0 auto;
-    
 }
-figure #containershow {
-    width: 60%;
+
+#containershow img {
+    width: 25%;
+    display:block;
     margin: 0 auto;
-    text-align: left;
-    
 }
-    figure img {
-    width: 40%;
-    float:left;
-    display: inline-block;
-    }
-    figure h2{
-    margin-bottom:50px;
+#containershow h2{
     text-align:center;
+ }
+#content {
+    width:40%;
+    display:block;
+    margin: 0 auto;
+    border:dashed 1px #A3A3CD;
+    border-radius:5px;
+    padding-left:30px;
+    padding-top:10px;
+}
+.navbar-inverse{
+    background-color:#FED5B3;
+    border-color:#FED5B3;
+}
+.navbar-inverse .navbar-brand{
+    color:#000;
+}
+.navbar-inverse .navbar-nav > li > a{
+    color:#000;
+}
+.navbar-inverse .navbar-toggle{
+    border-color:#fff;
+}
+.navbar-inverse .navbar-toggle:hover{
+    background-color:#D0D0E3;
+}
+.jumbotron {
+        background-color: #D0D0E3;
     }
-    figure p {
-        width:60%;
-        display:inline-block;
-        margin-top:50px;
-    }
+.btn-primary {
+    background-color: #A3A3CD;
+    border-color: #A3A3CD;
+}
+.btn-primary:hover {
+        background-color: #FED5B3;
+        border-color: #FED5B3;
+ }
+
+.btn-default{
+    border-color:#A3A3CD;
+    color:#A3A3CD;
+}
+
+.btn-default:hover{
+    background-color:#FED5B3;
+}
+footer {
+    text-align: center;
+    margin-top: 30px;
+    clear: both;
+}
+hr {
+        margin-top: 50px;
+        clear: both;
+        border-top-color:#A3A3CD;
+}
+.col-md-4 h2{
+        text-align:center;
+ }
+.col-md-4 p {
+        text-align:center;
+}
+.col-md-4 img {
+        display: block;
+        margin: 0 auto;
+ }
+
