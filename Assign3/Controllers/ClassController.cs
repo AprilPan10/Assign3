@@ -10,8 +10,9 @@ namespace Assign3.Controllers
 {
     public class ClassController : Controller
     {
+        //Code Credit: Christine Bittle
         // GET: Class
-       
+
         public ActionResult Index()
         {
             return View();

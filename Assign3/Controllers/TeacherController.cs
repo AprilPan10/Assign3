@@ -10,16 +10,17 @@ namespace Assign3.Controllers
 {
     public class TeacherController : Controller
     {
+        //Code Credit: Christine Bittle
         // GET: Teacher
         public ActionResult Index()
         {
             return View();
         }
         //Get : /Teacher/List
-        public ActionResult List()
+        public ActionResult List(string SearchKey = null)
         {
             TeacherDataController controller = new TeacherDataController();
-            IEnumerable<Teacher> Teachers = controller.ListTeachers();
+            IEnumerable<Teacher> Teachers = controller.ListTeachers(SearchKey);
             return View(Teachers);
         }
         //Get : /Teacher/Show/{id}
@@ -28,7 +29,6 @@ namespace Assign3.Controllers
             TeacherDataController controller = new TeacherDataController();
             Teacher NewTeacher = controller.FindTeacher(id);
            
-
             return View(NewTeacher);
         }
     }

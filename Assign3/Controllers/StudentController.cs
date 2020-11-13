@@ -9,6 +9,7 @@ namespace Assign3.Controllers
 {
     public class StudentController : Controller
     {
+        //Code Credit: Christine Bittle
         // GET: Student
         public ActionResult Index()
         {
@@ -26,8 +27,7 @@ namespace Assign3.Controllers
         {
             StudentDataController controller = new StudentDataController();
             Student NewStudent = controller.FindStudent(id);
-
-
+            
             return View(NewStudent);
         }
     }

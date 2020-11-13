@@ -68,7 +68,7 @@ a:hover {
 }
 .navbar-inverse{
     background-color:#FED5B3;
-    border-color:#FED5B3;
+    border-color:#A3A3CD;
 }
 .navbar-inverse .navbar-brand{
     color:#000;
@@ -83,8 +83,8 @@ a:hover {
     background-color:#D0D0E3;
 }
 .jumbotron {
-        background-color: #D0D0E3;
-    }
+    background-color: #D0D0E3;
+}
 .btn-primary {
     background-color: #A3A3CD;
     border-color: #A3A3CD;
@@ -93,14 +93,17 @@ a:hover {
         background-color: #FED5B3;
         border-color: #FED5B3;
  }
-
 .btn-default{
     border-color:#A3A3CD;
     color:#A3A3CD;
 }
-
 .btn-default:hover{
     background-color:#FED5B3;
+}
+input[type="submit" i]{
+    background-color:#A3A3CD;
+    border-color:#A3A3CD;
+    color: #fff;
 }
 footer {
     text-align: center;

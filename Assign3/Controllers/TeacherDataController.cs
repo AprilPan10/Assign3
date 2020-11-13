@@ -10,9 +10,10 @@ namespace Assign3.Controllers
 {
     public class TeacherDataController : ApiController
     {
+        //Code Credit: Christine Bittle
         // The database context class which allows us to access our MySQL Database.
         private SchoolDbContext School = new SchoolDbContext();
-        //This Controller Will access the teachers table of our School database.
+        //This Controller Will access the teachers table of our School database.Non-Deterministic.
         /// <summary>
         /// Returns a list of Teachers in the system
         /// </summary>
@@ -21,8 +22,9 @@ namespace Assign3.Controllers
         /// A list of teachers (first names and last names)
         /// </returns>
         [HttpGet] 
-        public IEnumerable<Teacher> ListTeachers()
-        {
+        [Route("api/TeacherData/ListTeachers/{SearchKey?}")]
+          public IEnumerable<Teacher> ListTeachers(string SearchKey = null)
+          {
             //Create an instance of a connection
             MySqlConnection Conn = School.AccessDatabase();
 
@@ -33,8 +35,11 @@ namespace Assign3.Controllers
             MySqlCommand cmd = Conn.CreateCommand();
 
             //SQL QUERY
-            string query = "Select * from teachers";
-            cmd.CommandText = query;
+            cmd.CommandText = "Select * from Teachers";
+            cmd.CommandText = "Select * from Teachers where lower(teacherfname) like lower(@key) or lower(teacherlname) like lower(@key) or lower(concat(teacherfname, ' ', teacherlname)) like lower(@key)";
+
+            cmd.Parameters.AddWithValue("@key", "%" + SearchKey + "%");
+            cmd.Prepare();
 
             //Gather Result Set of Query into a variable
             MySqlDataReader ResultSet = cmd.ExecuteReader();
@@ -53,8 +58,6 @@ namespace Assign3.Controllers
                 DateTime TeacherHiredate = (DateTime)ResultSet["hiredate"];
                 decimal TeacherSalary = (decimal)ResultSet["salary"];
                 
-               
-
                 Teacher NewTeacher = new Teacher();
                 NewTeacher.TeacherId = TeacherId;
                 NewTeacher.TeacherFname = TeacherFName;
@@ -63,9 +66,6 @@ namespace Assign3.Controllers
                 NewTeacher.TeacherHiredate = TeacherHiredate;
                 NewTeacher.TeacherSalary = TeacherSalary;
                
-                
-
-
                 //Add the Teacher Name to the List
                 Teachers.Add(NewTeacher);
             }
@@ -75,7 +75,7 @@ namespace Assign3.Controllers
 
             //Return the final list of teacher names
             return Teachers;
-        }
+          }
         [HttpGet]
         public Teacher FindTeacher(int id)
         {
@@ -90,8 +90,10 @@ namespace Assign3.Controllers
             MySqlCommand cmd = Conn.CreateCommand();
 
             //SQL QUERY
-            string query = "Select teachers.*, classname, classid from teachers left join classes on teachers.teacherid = classes.teacherid where teachers.teacherid ="+id;
+            string query = "Select teachers.*, classname, classid from teachers left join classes on teachers.teacherid = classes.teacherid where teachers.teacherid = @id";
             cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Prepare();
 
             //Gather Result Set of Query into a variable
             MySqlDataReader ResultSet = cmd.ExecuteReader();
@@ -107,11 +109,7 @@ namespace Assign3.Controllers
                 decimal TeacherSalary = (decimal)ResultSet["salary"];
                 string ClassName = ResultSet["classname"].ToString();
                 int ClassId =  Convert.ToInt32(ResultSet["classid"]);
-
-
-
-
-
+                
                 NewTeacher.TeacherId = TeacherId;
                 NewTeacher.TeacherFname = TeacherFName;
                 NewTeacher.TeacherLname = TeacherLName;

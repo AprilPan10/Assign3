@@ -12,6 +12,7 @@ namespace Assign3.Controllers
 {
     public class ClassDataController : ApiController
     {
+        //Code Credit: Christine Bittle
         // The database context class which allows us to access our MySQL Database.
         private SchoolDbContext School = new SchoolDbContext();
         //This Controller Will access the classes table of our School database.
@@ -63,14 +64,14 @@ namespace Assign3.Controllers
                 NewClass.ClassFinishdate = ClassFinishdate;
 
 
-                //Add the Teacher Name to the List
+                //Add the Class Name to the List
                 Classes.Add(NewClass);
             }
 
             //Close the connection between the MySQL Database and the WebServer
             Conn.Close();
 
-            //Return the final list of teacher names
+            //Return the final list of class names
             return Classes;
         }
         [HttpGet]
@@ -113,5 +114,5 @@ namespace Assign3.Controllers
             }
             return NewClass;
         }
-}
     }
+}
