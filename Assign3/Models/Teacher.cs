@@ -8,7 +8,7 @@ namespace Assign3.Models
     public class Teacher
     {
         //Code Credit: Christine Bittle
-        //The following fields define an Teacher
+        //The following fields define a Teacher
         public int TeacherId;
         public string TeacherFname;
         public string TeacherLname;
