@@ -90,7 +90,7 @@ namespace Assign3.Controllers
             MySqlCommand cmd = Conn.CreateCommand();
 
             //SQL QUERY
-            string query = "Select teachers.*, classname, classid from teachers left join classes on teachers.teacherid = classes.teacherid where teachers.teacherid = @id";
+            string query = "Select teachers.*, classname, classid from teachers inner join classes on teachers.teacherid = classes.teacherid where teachers.teacherid = @id";
             cmd.CommandText = query;
             cmd.Parameters.AddWithValue("@id", id);
             cmd.Prepare();
