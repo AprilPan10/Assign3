@@ -42,7 +42,7 @@ namespace Assign3.Controllers
             //Gather Result Set of Query into a variable
             MySqlDataReader ResultSet = cmd.ExecuteReader();
 
-            //Create an empty list of Teachers
+            //Create an empty list of Classes
             List<Class> Classes = new List<Class> { };
 
             //Loop Through Each Row the Result Set
