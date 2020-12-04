@@ -14,9 +14,10 @@ namespace Assign3.Controllers
 {
     public class TeacherDataController : ApiController
     {
+        //Code Credit: Christine Bittle
         // The database context class which allows us to access our MySQL Database.
         private SchoolDbContext School = new SchoolDbContext();
-        //This Controller Will access the teachers table of our School database.
+        //This Controller Will access the teachers table of our School database.Non-Deterministic.
         /// <summary>
         /// Returns a list of Teachers in the system
         /// </summary>
@@ -26,8 +27,11 @@ namespace Assign3.Controllers
         /// </returns>
         [HttpGet] 
         [Route("api/TeacherData/ListTeachers/{SearchKey?}")]
+
         public IEnumerable<Teacher> ListTeachers(string SearchKey = null)
         {
+         
+
             //Create an instance of a connection
             MySqlConnection Conn = School.AccessDatabase();
 
@@ -38,9 +42,14 @@ namespace Assign3.Controllers
             MySqlCommand cmd = Conn.CreateCommand();
 
             //SQL QUERY
+
             //cmd.CommandText = "Select * from Teachers";
-            cmd.CommandText = "Select * from Teachers where lower(teacherfname) like lower(@key) or lower(teacherlname) like lower(@key) or lower(concat(teacherfname, ' ', teacherlname)) like lower(@key)";
+            
            
+
+            cmd.CommandText = "Select * from Teachers";
+            cmd.CommandText = "Select * from Teachers where lower(teacherfname) like lower(@key) or lower(teacherlname) like lower(@key) or lower(concat(teacherfname, ' ', teacherlname)) like lower(@key)";
+
 
             cmd.Parameters.AddWithValue("@key", "%" + SearchKey + "%");
             cmd.Prepare();
@@ -60,10 +69,11 @@ namespace Assign3.Controllers
                 string TeacherLName = ResultSet["teacherlname"].ToString();
                 string TeacherEmployeenumber = ResultSet["employeenumber"].ToString();
                 DateTime TeacherHiredate = (DateTime)ResultSet["hiredate"];
+
                 string TeacherSalary = ResultSet["salary"].ToString();
                 //decimal TeacherSalary = (decimal)ResultSet["salary"];
-
-
+               
+                
 
                 Teacher NewTeacher = new Teacher();
                 NewTeacher.TeacherId = TeacherId;
@@ -73,9 +83,6 @@ namespace Assign3.Controllers
                 NewTeacher.TeacherHiredate = TeacherHiredate;
                 NewTeacher.TeacherSalary = TeacherSalary;
                
-                
-
-
                 //Add the Teacher Name to the List
                 Teachers.Add(NewTeacher);
             }
@@ -85,6 +92,7 @@ namespace Assign3.Controllers
 
             //Return the final list of teacher names
             return Teachers;
+
         }
         /// <summary>
         /// Finds an teacher from the MySQL Database through an id. Non-Deterministic.
@@ -93,6 +101,9 @@ namespace Assign3.Controllers
         /// <returns>Teacher object containing information about the teacher with a matching ID. Empty Teacher if the ID does not match any teachers in the system.</returns>
         /// <example>api/TeacherData/FindTeacher/1 -> {Teacher Object}</example>
      
+
+        
+
         [HttpGet]
         public Teacher FindTeacher(int id)
         {
@@ -107,8 +118,14 @@ namespace Assign3.Controllers
             MySqlCommand cmd = Conn.CreateCommand();
 
             //SQL QUERY
+
             string query = "Select teachers.*, IFNULL(classid,0) as classid, classname from teachers left join classes on teachers.teacherid = classes.teacherid where teachers.teacherid =" + id;
+
+            
+
             cmd.CommandText = query;
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Prepare();
 
             //Gather Result Set of Query into a variable
             MySqlDataReader ResultSet = cmd.ExecuteReader();
@@ -124,11 +141,7 @@ namespace Assign3.Controllers
                 string TeacherSalary = ResultSet["salary"].ToString();
                 string ClassName = ResultSet["classname"].ToString();
                 int ClassId =  Convert.ToInt32(ResultSet["classid"]);
-
-
-
-
-
+                
                 NewTeacher.TeacherId = TeacherId;
                 NewTeacher.TeacherFname = TeacherFName;
                 NewTeacher.TeacherLname = TeacherLName;

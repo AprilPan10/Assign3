@@ -7,7 +7,8 @@ namespace Assign3.Models
 {
     public class Teacher
     {
-        //The following fields define an Teacher
+        //Code Credit: Christine Bittle
+        //The following fields define a Teacher
         public int TeacherId;
         //try to do validation
         //[Required]

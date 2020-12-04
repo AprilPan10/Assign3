@@ -11,6 +11,7 @@ namespace Assign3.Controllers
 {
     public class TeacherController : Controller
     {
+        //Code Credit: Christine Bittle
         // GET: Teacher
         public ActionResult Index()
         {
@@ -29,7 +30,6 @@ namespace Assign3.Controllers
             TeacherDataController controller = new TeacherDataController();
             Teacher NewTeacher = controller.FindTeacher(id);
            
-
             return View(NewTeacher);
         }
         //Get : /Teacher/DeleteConfirm/{id}

@@ -10,7 +10,9 @@ using MySql.Data.MySqlClient;
 namespace Assign3.Controllers
 {
     public class StudentDataController : ApiController
-    {// The database context class which allows us to access our MySQL Database.
+    {
+        //Code Credit: Christine Bittle
+        // The database context class which allows us to access our MySQL Database.
         private SchoolDbContext School = new SchoolDbContext();
         //This Controller Will access the students table of our School database.
         /// <summary>
@@ -52,8 +54,6 @@ namespace Assign3.Controllers
                 string StudentStudentnumber = ResultSet["studentnumber"].ToString();
                 DateTime StudentEnroldate = (DateTime)ResultSet["enroldate"];
                 
-
-
                 Student NewStudent = new Student();
                 NewStudent.StudentId = StudentId;
                 NewStudent.StudentFname = StudentFName;
@@ -61,9 +61,6 @@ namespace Assign3.Controllers
                 NewStudent.StudentStudentnumber = StudentStudentnumber;
                 NewStudent.StudentEnroldate = StudentEnroldate;
                
-
-
-
                 //Add the Student Name to the List
                 Students.Add(NewStudent);
             }
@@ -71,7 +68,7 @@ namespace Assign3.Controllers
             //Close the connection between the MySQL Database and the WebServer
             Conn.Close();
 
-            //Return the final list of teacher names
+            //Return the final list of students names
             return Students;
         }
         [HttpGet]
@@ -103,9 +100,6 @@ namespace Assign3.Controllers
                 string StudentStudentnumber = ResultSet["studentnumber"].ToString();
                 DateTime StudentEnroldate = (DateTime)ResultSet["enroldate"];
 
-
-
-                
                 NewStudent.StudentId = StudentId;
                 NewStudent.StudentFname = StudentFName;
                 NewStudent.StudentLname = StudentLName;

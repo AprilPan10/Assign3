@@ -228,11 +228,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\images - Copy\class.png" />
-    <Content Include="Content\images - Copy\icons8-google-classroom-400.png" />
-    <Content Include="Content\images - Copy\icons8-user-male-512.png" />
-    <Content Include="Content\images - Copy\student.png" />
-    <Content Include="Content\images - Copy\user.png" />
     <Content Include="Content\images\class.png" />
     <Content Include="Content\images\warning.png" />
     <Content Include="Content\images\teacher.png" />
@@ -295,6 +290,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images - Copy\" />
     <Folder Include="Views\SchoolDbContext\" />
   </ItemGroup>
   <ItemGroup>

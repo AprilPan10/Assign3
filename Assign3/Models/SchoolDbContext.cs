@@ -7,10 +7,10 @@ namespace Assign3.Models
 {
     public class SchoolDbContext
     {
-
+        //Code Credit: Christine Bittle
         //These are readonly "secret" properties. 
         //Only the SchoolDbContext class can use them.
-        //Change these to match your own local blog database!
+        //Change these to match your own local school database!
         private static string User { get { return "root"; } }
         private static string Password { get { return ""; } }
         private static string Database { get { return "school"; } }

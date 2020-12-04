@@ -7,7 +7,8 @@ namespace Assign3.Models
 {
     public class Class
     {
-        //The following fields define an Class
+        //Code Credit: Christine Bittle
+        //The following fields define a Class
         public int ClassId;
         public string ClassName;
         public string ClassCode;
