@@ -27,6 +27,7 @@ namespace Assign3.Models
                     + "; database = " + Database
                     + "; port = " + Port
                     + "; password = " + Password;
+                     //+"; convert zero datetime = True";
             }
         }
         //This is the method we actually use to get the database!

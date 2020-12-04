@@ -13,6 +13,6 @@ namespace Assign3.Models
         public string ClassCode;
         public DateTime ClassStartdate;
         public DateTime ClassFinishdate;
-        
+        public Class() { }
     }
 }

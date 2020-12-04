@@ -13,7 +13,7 @@ namespace Assign3.Models
         public string StudentLname;
         public string StudentStudentnumber;
         public DateTime StudentEnroldate;
-        
 
+        public Student() { }
     }
 }

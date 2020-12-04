@@ -83,15 +83,16 @@ a:hover {
     background-color:#D0D0E3;
 }
 .jumbotron {
-        background-color: #D0D0E3;
+    background-color: #D0D0E3;
     }
 .btn-primary {
     background-color: #A3A3CD;
     border-color: #A3A3CD;
 }
+
 .btn-primary:hover {
-        background-color: #FED5B3;
-        border-color: #FED5B3;
+    background-color: #FED5B3;
+    border-color: #FED5B3;
  }
 
 .btn-default{
@@ -99,8 +100,32 @@ a:hover {
     color:#A3A3CD;
 }
 
+
 .btn-default:hover{
     background-color:#FED5B3;
+}
+.btn-lg, .btn-group-lg > .btn{
+    padding:5px;
+}
+.to-link {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 30%;
+    margin-top:3em;
+}
+ .to-link .btn-default{
+    display:inline-block;
+}
+.add-button {
+        margin-top: 3em;
+}
+.delbutton {
+    border-color:#FED5B3;
+    background-color:#FED5B3;
+    border-radius: 1px;
+    display:block;
+    margin: 0 auto;
 }
 footer {
     text-align: center;
@@ -122,4 +147,10 @@ hr {
         display: block;
         margin: 0 auto;
  }
+.add-form {
+    display: block;
+    margin: 0 auto;
+    width:18%;
+    margin-top:3em;
+}
 
